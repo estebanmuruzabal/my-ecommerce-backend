@@ -238,11 +238,11 @@ class ProductsUploadHandler {
                             sku: row['sku'],
                             name: {
                                 en: row['name'],
-                                pt: row['name']
+                                es: row['name']
                             },
                             description: {
                                 en: row['description'],
-                                pt: row['description']
+                                es: row['description']
                             },
                             pricing: {
                                 currency: row['currency'],

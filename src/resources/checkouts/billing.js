@@ -7,7 +7,14 @@ function getPaymentOptions(checkout) {
             id: 'bankTransfer',
             label: {
                 en: 'Bank Transfer',
-                pt: 'Transferência Bancária'
+                es: 'Transferencia Bancaria'
+            }
+        },
+        {
+            id: 'deliveryPayment',
+            label: {
+                en: 'Payment on delivery',
+                es: 'Pago en delivery'
             }
         }
     ];

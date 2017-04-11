@@ -87,6 +87,27 @@ export default [
     },
     {
         path: '/{collectionId}',
+        method: 'DELETE',
+        config: {
+            handler: {async: CollectionIdHandler.delete},
+            auth: {
+                mode: 'try',
+                strategy: 'jwt'
+            },
+            description: 'Delete collection',
+            tags: ['api'],
+            validate: {
+                headers: Joi.object({
+                    'authorization': Joi.string().optional()
+                }).unknown(),
+                params: {
+                    collectionId: Joi.string().required().description('the id for the collection'),
+                }
+            }
+        }
+    },
+    {
+        path: '/{collectionId}',
         method: 'PUT',
         config: {
             handler: {async: CollectionIdHandler.put},
@@ -107,7 +128,7 @@ export default [
                     enabled: Joi.boolean().required(),
                     name: Joi.object({
                         en: Joi.string().required(),
-                        pt: Joi.string().required()
+                        es: Joi.string().required()
                     }).required(),
                     description: Joi.object().optional(),
                     tags: Joi.array().required(),

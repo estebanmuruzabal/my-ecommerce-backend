@@ -69,6 +69,22 @@ class Collection {
     }
 
     /**
+     * Delete Collection
+     */
+    @DBDecorators.table(tables.Collection)
+    static async del(collectionId) {
+
+        // Validate that SKU does not belong to another product
+
+
+        // Update Collection
+        await this.table.get(collectionId).delete().run();
+
+        // Fetch Collection's latest state and return.
+        return await Collection.get(collectionId);
+    }
+
+    /**
      * Update collection
      */
     @DBDecorators.table(tables.Collection)

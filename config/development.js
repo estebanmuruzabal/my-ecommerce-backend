@@ -5,7 +5,7 @@ export default {
         host: '0.0.0.0',
         port: 8000,
         jwtKey: process.env.JWT_KEY,
-        defaultCurrency: 'EUR'
+        defaultCurrency: 'ARS'
     },
     database: {
         servers: [
@@ -37,9 +37,9 @@ export default {
         }
     },
     storefront: {
-        label: 'nicistore.com',
+        label: 'tienda765.com',
         baseUrl: 'http://localhost:3000',
-        defaultLocale: 'pt'
+        defaultLocale: 'es'
     },
     switchPayments: {
         enabled: true,

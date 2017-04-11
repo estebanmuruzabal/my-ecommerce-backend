@@ -127,7 +127,7 @@ async function processProduct(apiBaseURL, jwt, product) {
         }, async function (error, response, body) {
             let responseJSON = JSON.parse(body);
             if (!error && response.statusCode == 200 && responseJSON.items.length > 0) {
-                console.log('SKU %s in database --> Name: %s', product.sku, responseJSON.items[0].name.pt);
+                console.log('SKU %s in database --> Name: %s', product.sku, responseJSON.items[0].name.es);
                 let uploadedImages = await * product.images.map(img => uploadImage(apiBaseURL, jwt, img));
                 console.log('Uploaded images for %s', product.sku, uploadedImages);
                 await updateProduct(apiBaseURL, jwt, responseJSON.items[0], uploadedImages);

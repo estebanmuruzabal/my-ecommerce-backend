@@ -116,7 +116,7 @@ export default [
                     collections: Joi.array().required(),
                     name: Joi.object({
                         en: Joi.string().required(),
-                        pt: Joi.string().required()
+                        es: Joi.string().required()
                     }).required(),
                     tags: Joi.array().required(),
                     metadata: Joi.object().required(),

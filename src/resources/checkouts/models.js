@@ -37,7 +37,7 @@ class Checkout {
     static async create({cartId, shippingAddress=null, billingAddress=null}) {
 
         let obj = {
-            currency: 'EUR',
+            currency: 'ARS',
             shippingAddress: shippingAddress || {},
             billingAddress: billingAddress || {},
             createdAt: new Date()

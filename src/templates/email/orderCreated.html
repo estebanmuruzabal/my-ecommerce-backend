@@ -9,7 +9,7 @@
                                 <tr>
                                     <td valign="top" style="text-align:center">
                                         <a href="{{base.storefrontUrl}}" target="_blank">
-                                            <img src="{{base.storefrontUrl}}/static/logo.png" alt="nicistore.com" style="margin-bottom:10px" border="0">
+                                            <img src="{{base.storefrontUrl}}/static/logo.png" alt="tienda765.com" style="margin-bottom:10px" border="0">
                                         </a>
                                     </td>
                                 </tr>
@@ -19,18 +19,18 @@
                                             Olá {{data.customerDetails.name}},
                                         </h1>
                                         <p style="font-size: 18px">
-                                            Quando for confirmado o pagamento da sua encomenda, procederemos ao envio da mesma.
-                                            Em baixo encontra todos os detalhes, bem como instruções sobre o pagamento.
+                                            Queda por confirmar el pago de su encomienda, luego procederemos al envio de la misma.
+                                            Debajo encontrara todos los detalles, asi como instrucciones de su pago.
                                         </p>
                                         <p style="font-size: 18px">
-                                            Se tiver alguma questão, não hesite em responder a este e-mail com as suas dúvidas.
+                                            Si tiene alguna consulta, no dude en responder este email con sus dudas.
                                         </p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="text-align:center;">
                                         <h2 style="font-size:18px;margin-top:0">
-                                            ID da Encomenda:<br>
+                                            Numero unico de encomienda:<br>
                                             {{data.order.id}}
                                         </h2>
                                     </td>
@@ -41,11 +41,11 @@
                                             <thead>
                                                 <tr>
                                                     <th align="left" width="325" bgcolor="#EAEAEA" style="font-size:13px;padding:5px 9px 6px 9px;line-height:1em">
-                                                        Dados de Facturação:
+                                                        Dados de Facturacion:
                                                     </th>
                                                     <th width="10"></th>
                                                     <th align="left" width="325" bgcolor="#EAEAEA" style="font-size:13px;padding:5px 9px 6px 9px;line-height:1em">
-                                                        Método de Pagamento:
+                                                        Método de Pago:
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -110,7 +110,7 @@
                                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th align="left" width="325" bgcolor="#EAEAEA" style="font-size:13px;padding:5px 9px 6px 9px;line-height:1em">Dados de Envio:</th>
+                                                    <th align="left" width="325" bgcolor="#EAEAEA" style="font-size:13px;padding:5px 9px 6px 9px;line-height:1em">Datos de Envio:</th>
                                                     <th width="10"></th>
                                                     <th align="left" width="325" bgcolor="#EAEAEA" style="font-size:13px;padding:5px 9px 6px 9px;line-height:1em">Método de Envio:</th>
                                                 </tr>
@@ -131,7 +131,7 @@
                                                     </td>
                                                     <td>&nbsp;</td>
                                                     <td valign="top" style="font-size:12px;padding:7px 9px 9px 9px;border-left:1px solid #eaeaea;border-bottom:1px solid #eaeaea;border-right:1px solid #eaeaea">
-                                                        {{data.shippingDetails.name.pt}}
+                                                        {{data.shippingDetails.name.es}}
                                                         &nbsp;
                                                     </td>
                                                 </tr>
@@ -144,15 +144,15 @@
                                                     <th align="left" bgcolor="#EAEAEA" style="font-size:13px;padding:3px 9px">Item</th>
                                                     <th align="left" bgcolor="#EAEAEA" style="font-size:13px;padding:3px 9px">Ref</th>
                                                     <th align="center" bgcolor="#EAEAEA" style="font-size:13px;padding:3px 9px">Qt</th>
-                                                    <th align="right" bgcolor="#EAEAEA" style="font-size:13px;padding:3px 9px">Preço</th>
+                                                    <th align="right" bgcolor="#EAEAEA" style="font-size:13px;padding:3px 9px">Precio</th>
                                                 </tr>
                                             </thead>
                                             <tbody bgcolor="#F6F6F6">
                                                 {{#each data.checkout.cart.products}}
                                                 <tr>
                                                     <td align="left" valign="top" style="font-size:11px;padding:3px 9px">
-                                                        <a href="{{../base.storefrontUrl}}/pt/products/{{id}}" style="color:#1e7ec8" target="_blank">
-                                                            {{details.name.pt}}
+                                                        <a href="{{../base.storefrontUrl}}/es/products/{{id}}" style="color:#1e7ec8" target="_blank">
+                                                            {{details.name.es}}
                                                         </a>
                                                     </td>
                                                     <td align="left" valign="top" style="font-size:11px;padding:3px 9px">
@@ -162,7 +162,7 @@
                                                         {{quantity}}
                                                     </td>
                                                     <td align="right" valign="top" style="font-size:11px;padding:3px 9px;border-bottom:1px dotted #cccccc">
-                                                        <span>{{details.pricing.retail}}&nbsp;€</span>
+                                                        <span>{{details.pricing.retail}}&nbsp;ARS</span>
                                                     </td>
                                                 </tr>
                                                 {{/each}}
@@ -173,7 +173,7 @@
                                                         Sub-total
                                                     </td>
                                                     <td align="right" style="padding:3px 9px">
-                                                        <span>{{data.checkout.subTotal}}&nbsp;€</span>
+                                                        <span>{{data.checkout.subTotal}}&nbsp;ARS</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -181,7 +181,7 @@
                                                         Portes
                                                     </td>
                                                     <td align="right" style="padding:3px 9px">
-                                                        <span>{{data.checkout.shippingCost}}&nbsp;€</span>
+                                                        <span>{{data.checkout.shippingCost}}&nbsp;ARS</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -189,7 +189,7 @@
                                                         IVA
                                                     </td>
                                                     <td align="right" style="padding:3px 9px">
-                                                        <span>{{data.checkout.vatTotal}}&nbsp;€</span>
+                                                        <span>{{data.checkout.vatTotal}}&nbsp;ARS</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -197,7 +197,7 @@
                                                         <strong>Total</strong>
                                                     </td>
                                                     <td align="right" style="padding:3px 9px">
-                                                        <strong><span>{{data.checkout.total}}&nbsp;€</span></strong>
+                                                        <strong><span>{{data.checkout.total}}&nbsp;ARS</span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -209,7 +209,7 @@
                                     <td bgcolor="#EAEAEA" align="center" style="background:#eaeaea;text-align:center">
                                         <center>
                                             <p style="font-size:12px;margin:0">
-                                                Obrigado pela preferência,
+                                                Muchas gracias por elegirnos,
                                                 <a href="{{base.storefrontUrl}}" style="color:#1e7ec8" target="_blank">
                                                     {{base.storefrontLabel}}
                                                 </a>

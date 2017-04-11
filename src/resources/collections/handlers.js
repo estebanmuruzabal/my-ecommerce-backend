@@ -42,7 +42,7 @@ class CollectionIdHandler {
      * Process GET request
      */
     static async get(request, reply) {
-        let collection = await Collection.get(request.params.collectionId);    
+        let collection = await Collection.get(request.params.collectionId);
         // Note: Only authenticated Admins can see collections that are not enabled
         let isAdmin = request.auth.credentials && request.auth.credentials.scope && request.auth.credentials.scope.indexOf('admin') !== -1;
         if (collection && (collection.enabled === true || isAdmin)) {
@@ -67,6 +67,32 @@ class CollectionIdHandler {
         collection = await Collection.update(request.params.collectionId, request.payload);
         return reply(collection);
     }
+
+    /**
+     * Process DELETE request
+     */
+    static async delete(request, reply) {
+
+        // Check if collection with given ID exists
+        let collection = await Collection.get(request.params.collectionId);
+        if (!collection) {
+            return reply().code(404);
+        }
+
+        // delete the collection
+        try {
+            collection = await Collection.del(request.params.collectionId, request.payload);
+            return reply().code(201);
+        } catch (err) {
+            if (err.name === ErrorName.VALIDATION_ERROR) {
+                return reply(BadRequest.invalidParameters('payload', {[err.param]: [err.message]})).code(400);
+            } else {
+                log.error(err, 'Unable to delete collection');
+                return reply().code(500);
+            }
+        }
+    }
+
 }
 
 /**
