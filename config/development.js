@@ -2,7 +2,7 @@ import path from 'path';
 
 export default {
     app: {
-        host: '0.0.0.0',
+        host: 'localhost',
         port: 8000,
         jwtKey: process.env.JWT_KEY,
         defaultCurrency: 'ARS'
@@ -32,13 +32,13 @@ export default {
     },
     emails: {
         from: {
-            name: 'Nicistore.com',
-            email: 'vendas@nicistore.com'
+            name: 'tienda765.com',
+            email: 'vendas@tienda765.com'
         }
     },
     storefront: {
         label: 'tienda765.com',
-        baseUrl: 'http://localhost:3000',
+        baseUrl: 'https://localhost:3000',
         defaultLocale: 'es'
     },
     switchPayments: {

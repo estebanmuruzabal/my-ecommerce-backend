@@ -21,6 +21,7 @@
     "bcrypt": "^1.0.2",
     "bunyan": "1.8.0",
     "fast-csv": "1.1.0",
+    "fs": "0.0.1-security",
     "handlebars": "^4.0.5",
     "hapi": "11.1.4",
     "hapi-async-handler": "1.0.3",

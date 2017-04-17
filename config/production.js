@@ -12,7 +12,7 @@ config.logs.streams = [
 ];
 config.uploads.folder = '/uploads';
 config.uploads.baseUrl = 'nicistore.com/files';
-config.storefront.baseUrl = 'https://nicistore.com';
+config.storefront.baseUrl = 'https://tienda765.com';
 config.switchPayments.baseUrl = 'https://api.switchpayments.com/v2';
 
 // Export
