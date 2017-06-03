@@ -33,7 +33,7 @@ export default {
     emails: {
         from: {
             name: 'tienda765.com',
-            email: 'vendas@tienda765.com'
+            email: 'vendas@tienda.com'
         }
     },
     storefront: {

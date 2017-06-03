@@ -1,7 +1,7 @@
 /**
  * Imports
  */
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 import {rethinkdb, Decorators as DBDecorators} from '../../core/db';
 import {PermissionDenied} from '../../core/errors';

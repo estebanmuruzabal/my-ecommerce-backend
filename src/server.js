@@ -20,11 +20,6 @@ const Pack = require('../package');
  * Server setup
  */
 
-const tls = {
-    key: fs.readFileSync('/Users/estebanmuruzabal/work/atlas/src/key.pem'),
-    cert: fs.readFileSync('/Users/estebanmuruzabal/work/atlas/src/cert.pem')
-};
-
 const server = new Hapi.Server({
     connections: {
         router: {
@@ -42,8 +37,7 @@ server.connection({
                 'Origin'
             ]
         }
-    },
-    tls: tls
+    }
 });
 
 // Swagger API Documentation
