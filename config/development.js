@@ -4,7 +4,7 @@ export default {
     app: {
         host: 'localhost',
         port: 8000,
-        jwtKey: process.env.JWT_KEY,
+        jwtKey: 'GuJxOyUxLaUdKS17coYwdwEvAl5L0Du2zeA8NOTLNQ4=',
         defaultCurrency: 'ARS'
     },
     database: {
@@ -32,12 +32,12 @@ export default {
     },
     emails: {
         from: {
-            name: 'tienda765.com',
+            name: 'bananacat.co',
             email: 'vendas@tienda.com'
         }
     },
     storefront: {
-        label: 'tienda765.com',
+        label: 'bananacat.co',
         baseUrl: 'https://localhost:3000',
         defaultLocale: 'es'
     },
