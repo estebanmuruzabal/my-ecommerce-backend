@@ -33,7 +33,7 @@ export default {
     emails: {
         from: {
             name: 'bananacat.co',
-            email: 'vendas@tienda.com'
+            email: 'ventas@bananacat.co'
         }
     },
     storefront: {
