@@ -8,4 +8,5 @@ require('babel/register')({
 /**
  * Start application server.
  */
+ 
 require('./src/server');

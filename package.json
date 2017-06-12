@@ -20,6 +20,7 @@
     "babel": "5.8.38",
     "bcryptjs": "^2.4.3",
     "bunyan": "1.8.0",
+    "dotenv": "^4.0.0",
     "fast-csv": "1.1.0",
     "fs": "0.0.1-security",
     "handlebars": "^4.0.5",
