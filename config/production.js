@@ -7,7 +7,7 @@ config.logs.folder = '/var/log';
 config.logs.streams = [
     {
         level: 'info',
-        path: config.logs.folder + '/atlas.log'
+        path: config.logs.folder + '/tienda765.log'
     }
 ];
 config.uploads.folder = '/uploads';

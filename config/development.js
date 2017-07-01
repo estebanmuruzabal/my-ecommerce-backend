@@ -26,18 +26,14 @@ export default {
         ]
     },
     uploads: {
-        provider: 'atlas',
+        provider: 'tienda765',
         folder: path.join(process.cwd(), 'uploads'),
         baseUrl: 'bananacat.co/uploads'
     },
     emails: {
         from: {
             name: 'bananacat.co',
-<<<<<<< HEAD
-            email: 'vendas@tienda.com'
-=======
             email: 'ventas@bananacat.co'
->>>>>>> 54fafe69d5623048c182dacf4eeeab81928d369f
         }
     },
     storefront: {
