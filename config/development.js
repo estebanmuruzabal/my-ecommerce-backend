@@ -32,12 +32,12 @@ export default {
     },
     emails: {
         from: {
-            name: 'bananacat.co',
-            email: 'ventas@bananacat.co'
+            name: 'tienda765.com',
+            email: 'ventas@tienda765.com'
         }
     },
     storefront: {
-        label: 'bananacat.co',
+        label: 'tienda765.com',
         baseUrl: 'http://localhost:4000',
         defaultLocale: 'es'
     },

@@ -11,8 +11,8 @@ config.logs.streams = [
     }
 ];
 config.uploads.folder = '/uploads';
-config.uploads.baseUrl = 'bananacat.co/files';
-config.storefront.baseUrl = 'http://bananacat.co';
+config.uploads.baseUrl = 'tienda765.com/files';
+config.storefront.baseUrl = 'http://tienda765.com';
 config.switchPayments.baseUrl = 'http://api.switchpayments.com/v2';
 
 // Export
