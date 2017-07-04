@@ -17,7 +17,7 @@ import log from './logging';
 function processUpload(resource, file) {
     return new Promise(async function (resolve, reject) {
 
-        if (config.uploads.provider !== 'tienda765') {
+        if (config.uploads.provider !== 'atlas') {
             return reject({
                 error: `Unsupported upload provider: ${config.uploads.provider}`
             });
@@ -56,7 +56,7 @@ function processUpload(resource, file) {
 function deleteAll(resource) {
     return new Promise(async function (resolve, reject) {
 
-        if (config.uploads.provider !== 'tienda765') {
+        if (config.uploads.provider !== 'atlas') {
             return reject({
                 error: `Unsupported upload provider: ${config.uploads.provider}`
             });

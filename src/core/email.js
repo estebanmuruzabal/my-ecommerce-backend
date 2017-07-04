@@ -71,6 +71,7 @@ function sendEmail(from, to, subject, text, html) {
 function sendTemplate(template, to, data, subject) {
     return new Promise(function (resolve, reject) {
         log.debug({template, to, data}, 'sendTemplate');
+        log.debug({data}, 'data thing');
         fs.readFile(path.join(process.cwd(), 'src/templates/email', template.fileName), 'utf8', async function (err, source) {
             if (err) {
                 return reject(err);
@@ -84,6 +85,7 @@ function sendTemplate(template, to, data, subject) {
                 };
                 let html = Handlebars.compile(source)({base, data});
                 await sendEmail(from, to, subject || template.subject, null, html);
+                log.debug({html}, 'html thing');
                 return resolve(html);
             } catch (err) {
                 return reject(err);

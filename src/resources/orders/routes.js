@@ -12,8 +12,7 @@ import {OrderSerializer} from './serializers';
 import {
     OrdersHandler,
     OrderIdHandler,
-    OrderEmailHandler,
-    SwitchPaymentsWebhookHandler
+    OrderEmailHandler
 } from './handlers';
 
 /**
@@ -129,21 +128,6 @@ export default [
                     subject: Joi.string().required()
                 }
             }
-        }
-    },
-    {
-        path: '/{orderId}/spwh',
-        method: 'POST',
-        config: {
-            handler: {async: SwitchPaymentsWebhookHandler.post},
-            description: 'Switch Payments webhook',
-            tags: ['api'],
-            validate: {
-                params: {
-                    orderId: Joi.string().required().description('the id for the order'),
-                }
-            }
-
         }
     }
 ];

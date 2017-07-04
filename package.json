@@ -1,17 +1,11 @@
 {
-  "name": "my-ecommerce-backend",
+  "name": "banana-store-backend",
   "version": "1.0.0",
-  "description": "E-Commerce Backend API",
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ESTEBANMURUZABAL/my-ecommerce-backend.git"
-  },
+  "description": "bananaStore Backend API",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon index | bunyan",
-    "prod": "NODE_ENV=production nodemon index | bunyan"	 
- },
+    "dev": "NODE_ENV=development nodemon index | bunyan"
+  },
   "author": "Esteban Muruzabal",
   "engines": {
     "node": "4.2.5",

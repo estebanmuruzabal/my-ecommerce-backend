@@ -4,17 +4,24 @@
 function getPaymentOptions(checkout) {
     return [
         {
-            id: 'bankTransfer',
+            id: 'mercadopago',
             label: {
-                en: 'Bank Transfer',
-                es: 'Transferencia Bancaria'
+                es: 'Pago online mediante Mercado Pago',
+                en: 'Payment through Mercado Pago'
             }
         },
         {
-            id: 'deliveryPayment',
+            id: 'paypal',
             label: {
                 en: 'Payment on delivery',
-                es: 'Pago en delivery'
+                es: 'Pago online mediante Paypal (se necesita cuenta en Paypal)'
+            }
+        },
+        {
+            id: 'cash',
+            label: {
+                en: 'Payment on delivery',
+                es: 'En efectivo. Pagás cuando recibís la mercadería'
             }
         }
     ];

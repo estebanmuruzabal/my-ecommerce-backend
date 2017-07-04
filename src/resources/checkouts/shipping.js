@@ -12,26 +12,68 @@ function getShippingOptions(checkout) {
 
     if (new Checkout(checkout).getSubTotal() <= 150) {
         options.push({
-            value: 'standard',
+            value: 'Free',
             name: {
-                en: 'Corréo Argentino, 2 to 3 workdays after shipping',
-                es: 'Corréo Argentino, 2 a 3 dias hábiles después de envío'
-            },
-            price: 3.40,
-            vat: 23,
-            currency: 'ARS'
-        });
-    } else {
-        options.push({
-            value: 'free',
-            name: {
-                en: 'Free! Corréo Argentino, 2 to 3 workdays after shipping',
-                es: 'Gratis! Corréo Argentino, 2 a 3 dias hábiles después de envío'
+                en: 'To take pick-up in our shop',
+                es: 'A retirar en nuestro local'
             },
             price: 0,
-            vat: 23,
+            vat: 0,
             currency: 'ARS'
-        });
+        },
+        {
+          value: 'Zona-1',
+          name: {
+            en: 'Shipping to address in Zone 1',
+            es: 'Envio a domicilio en Zona 1'
+          },
+          price: 25.00,
+          vat: 0,
+          currency: 'ARS'
+        },
+        {
+            value: 'Zona-2',
+            name: {
+              en: 'Shipping to address in Zone 2',
+              es: 'Envio a domicilio en Zona 2'
+            },
+            price: 35.00,
+            vat: 0,
+            currency: 'ARS'
+        }
+      );
+    } else {
+        options.push({
+          value: 'Free',
+          name: {
+              en: 'A retirar en nuestro local, calle Guemes 765. Lun a Vie de 07:30 a 12:30 o 17:00 a 20:30',
+              es: 'A retirar en nuestro local, calle Guemes 765. Lun a Vie de 07:30 a 12:30 o 17:00 a 20:30'
+          },
+          price: 0,
+          vat: 0,
+          currency: 'ARS'
+        },
+        {
+          value: 'Zona-1-free',
+          name: {
+              en: 'Envio gratis dentro del casco centrico. Todos los Lunes y Jueves de 14 a 16',
+              es: 'Envio gratis dentro del casco centrico. Todos los Lunes y Jueves de 14 a 16'
+          },
+          price: 0,
+          vat: 0,
+          currency: 'ARS'
+        },
+        {
+            value: 'Zona 2',
+            name: {
+              en: 'Shipping to address in Zone 2',
+              es: 'Envio a domicilio en Zona 2'
+            },
+            price: 35.00,
+            vat: 0,
+            currency: 'ARS'
+        }
+      );
     }
 
     return options;

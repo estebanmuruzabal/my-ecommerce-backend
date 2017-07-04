@@ -1,4 +1,5 @@
 /**
+/**
  * Automatically hook babel into all node requires.
  */
 require('babel/register')({

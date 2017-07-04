@@ -70,6 +70,9 @@ if (process.env.NODE_ENV !== 'production') {
                 name: 'collections',
                 description: 'Group of products'
             }, {
+                name: 'services',
+                description: 'Group of services'
+            }, {
                 name: 'contents',
                 description: 'Generic content'
             }, {
@@ -140,7 +143,7 @@ server.route(routes);
 // This should only be used for development. In production
 // static files should not be served by this application but something
 // like nginx.
-if (process.env.NODE_ENV !== 'production' && config.uploads.provider === 'tienda765') {
+if (process.env.NODE_ENV !== 'production' && config.uploads.provider === 'atlas') {
     server.register(Inert, function () {});
     server.route({
         method: 'GET',
@@ -165,7 +168,7 @@ db.testDatabase().then(function successFn() {
         if (err) {
             log.fatal(err, 'Unable to start Atlas server');
         } else {
-            log.info(`Tienda 765 backend running at: ${server.info.uri}${config.app.routePrefix || ''}`);
+            log.info(`Atlas running at: ${server.info.uri}${config.app.routePrefix || ''}`);
         }
     });
 }, function errorFn(err) {
