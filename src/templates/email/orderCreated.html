@@ -75,11 +75,13 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td>
-                                                                        <img src="{{base.storefrontUrl}}/static/paymentMethods/{{data.checkout.paymentMethod}}.png"
-                                                                             border="0"
-                                                                             width="100"
-                                                                             alt="{{data.checkout.paymentMethod}}"
-                                                                             title="{{data.checkout.paymentMethod}}">
+                                                                        <a href="https://www.w3schools.com">
+                                                                            <img src="{{base.storefrontUrl}}/static/paymentMethods/{{data.checkout.paymentMethod}}.png"
+                                                                                 border="0"
+                                                                                 width="100"
+                                                                                 alt="{{data.checkout.paymentMethod}}"
+                                                                                 title="{{data.checkout.paymentMethod}}">
+                                                                        </a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -178,7 +180,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3" align="right" style="padding:3px 9px">
-                                                        Portes
+                                                        Costo de envío:
                                                     </td>
                                                     <td align="right" style="padding:3px 9px">
                                                         <span>{{data.checkout.shippingCost}}&nbsp;ARS</span>

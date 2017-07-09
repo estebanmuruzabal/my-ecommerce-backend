@@ -125,7 +125,8 @@ export default [
                 payload: {
                     template: Joi.string().required(),
                     email: Joi.string().required(),
-                    subject: Joi.string().required()
+                    subject: Joi.string().required(),
+                    paymentlink: Joi.string().required()
                 }
             }
         }

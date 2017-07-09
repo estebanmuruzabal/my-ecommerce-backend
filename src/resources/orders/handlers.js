@@ -232,7 +232,7 @@ class OrderEmailHandler {
         //
         // 3) Validate payload
         //
-        if ([EmailTemplate.ORDER_CREATED.id, EmailTemplate.ORDER_PAID.id, EmailTemplate.ORDER_PENDING_PAYMENT.id].indexOf(request.payload.template) === -1) {
+        if ([EmailTemplate.ORDER_CREATED.id, EmailTemplate.ORDER_PAID.id, EmailTemplate.ORDER_PENDING_PAYMENT.id, EmailTemplate.ORDER_PENDING_PAYMENT_MERCADOPAGO.id, EmailTemplate.ORDER_PENDING_PAYMENT_PAYPAL.id].indexOf(request.payload.template) === -1) {
             return reply(BadRequest.invalidParameters('payload', {template: ['Invalid']})).code(400);
         }
 
@@ -251,6 +251,8 @@ class OrderEmailHandler {
         let to = request.payload.email;
         let data;
         let subject = request.payload.subject;
+        let paymentlink = request.payload.paymentlink;
+
 
         // a) Order Created
         if (request.payload.template === EmailTemplate.ORDER_CREATED.id) {
@@ -282,6 +284,30 @@ class OrderEmailHandler {
             template = EmailTemplate.ORDER_PENDING_PAYMENT;
             data = {
                 order: order
+            };
+        }
+
+        // c) Order Pending Payment Mercado Pago
+        else if (request.payload.template === EmailTemplate.ORDER_PENDING_PAYMENT_MERCADOPAGO.id) {
+            template = EmailTemplate.ORDER_PENDING_PAYMENT_MERCADOPAGO;
+            data = {
+                customerDetails: order.customer,
+                checkout: checkoutSerialized,
+                shippingDetails: checkout.getShippingDetails(),
+                order: order,
+                paymentlink: paymentlink
+            };
+        }
+
+        // c) Order Pending Payment PayPal
+        else if (request.payload.template === EmailTemplate.ORDER_PENDING_PAYMENT_PAYPAL.id) {
+            template = EmailTemplate.ORDER_PENDING_PAYMENT_PAYPAL;
+            data = {
+                customerDetails: order.customer,
+                checkout: checkoutSerialized,
+                shippingDetails: checkout.getShippingDetails(),
+                order: order,
+                paymentlink: paymentlink
             };
         }
 

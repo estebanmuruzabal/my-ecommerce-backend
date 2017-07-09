@@ -26,17 +26,27 @@ const EmailTemplate = {
     ORDER_CREATED: {
         id: 'order.created',
         fileName: 'orderCreated.html',
-        subject: 'Obrigado pela sua encomenda!'
+        subject: 'Gracias por su compra!'
     },
     ORDER_PENDING_PAYMENT: {
         id: 'order.pendingPayment',
         fileName: 'orderPendingPayment.html',
-        subject: 'Encomenda a aguardar pagamento'
+        subject: 'Pedido aguardando pago'
+    },
+    ORDER_PENDING_PAYMENT_PAYPAL: {
+        id: 'order.pendingPaymentPaypal',
+        fileName: 'orderPendingPaymentPaypal.html',
+        subject: 'Pedido aguardando pago'
+    },
+    ORDER_PENDING_PAYMENT_MERCADOPAGO: {
+        id: 'order.pendingPaymentMercadoPago',
+        fileName: 'orderPendingPaymentMercadoPago.html',
+        subject: 'Pedido aguardando pago'
     },
     ORDER_PAID: {
         id: 'order.paid',
         fileName: 'orderPaid.html',
-        subject: 'Confirmação de Pagamento'
+        subject: 'Confirmación de pago'
     }
 };
 
