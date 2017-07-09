@@ -33,12 +33,12 @@ export default {
     emails: {
         from: {
             name: 'tienda765.com',
-            email: 'ventas@tienda765.com'
+            email: 'contacto@tienda765.com'
         }
     },
     storefront: {
         label: 'tienda765.com',
-        baseUrl: 'http://localhost:4000',
+        baseUrl: 'http://tienda765.com',
         defaultLocale: 'es'
     },
     switchPayments: {
@@ -48,7 +48,7 @@ export default {
         privateKey: process.env.SWITCH_PRIVATE_KEY
     },
     mailgun: {
-        domain: 'sandboxf5ed0a6691394a34b9b0ad053fa40b9c.mailgun.org',
+        domain: 'tienda765.com',
         apiKey: 'key-749708a8273ff4982711cf7588a1ff37'
     }
 }
