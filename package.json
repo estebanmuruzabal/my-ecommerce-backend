@@ -1,10 +1,11 @@
 {
-  "name": "banana-store-backend",
+  "name": "atlas",
   "version": "1.0.0",
   "description": "bananaStore Backend API",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon index | bunyan"
+    "dev": "NODE_ENV=development nodemon index | bunyan",
+    "prod": "NODE_ENV=production nodemon index | bunyan"
   },
   "author": "Esteban Muruzabal",
   "engines": {

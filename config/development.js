@@ -28,7 +28,7 @@ export default {
     uploads: {
         provider: 'atlas',
         folder: path.join(process.cwd(), 'uploads'),
-        baseUrl: 'localhost:8000/uploads'
+        baseUrl: 'tienda765.com/uploads'
     },
     emails: {
         from: {

@@ -8,5 +8,5 @@ require('babel/register')({
 /**
  * Start application server.
  */
- 
+require('dotenv').config(); 
 require('./src/server');
