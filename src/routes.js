@@ -6,6 +6,7 @@ import cartRoutes from './resources/carts/routes';
 import checkoutRoutes from './resources/checkouts/routes';
 import collectionRoutes from './resources/collections/routes';
 import contentRoutes from './resources/contents/routes';
+import copiesRoutes from './resources/copies/routes';
 import fileRoutes from './resources/files/routes';
 import orderRoutes from './resources/orders/routes';
 import productRoutes from './resources/products/routes';
@@ -19,6 +20,7 @@ export default buildRoutes({
     [`${routePrefix}/v1/checkouts`]: checkoutRoutes,
     [`${routePrefix}/v1/collections`]: collectionRoutes,
     [`${routePrefix}/v1/contents`]: contentRoutes,
+    [`${routePrefix}/v1/copies`]: copiesRoutes,
     [`${routePrefix}/v1/files`]: fileRoutes,
     [`${routePrefix}/v1/orders`]: orderRoutes,
     [`${routePrefix}/v1/products`]: productRoutes,

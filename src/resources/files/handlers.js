@@ -16,8 +16,9 @@ class FileHandlers {
     static async post(request, reply) {
 
         // Validate payload
-        if (['collections', 'contents', 'products'].indexOf(request.payload.resource) === -1) {
-            return reply(BadRequest.invalidParameters('payload', {resource: ['Invalid']})).code(400);
+        if (['collections', 'contents', 'products', 'copies'].indexOf(request.payload.resource) === -1) {
+            log.error(request, 'Invalid request');
+            return reply(BadRequest.invalidParameters('request', {resource: ['Invalid']})).code(400);
         }
 
         // Process upload and return accordingly

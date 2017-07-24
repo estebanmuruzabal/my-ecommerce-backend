@@ -34,11 +34,13 @@ class Checkout {
      * Create a new checkout
      */
     @DBDecorators.table(tables.Checkout)
-    static async create({cartId, shippingAddress=null, billingAddress=null}) {
+    static async create({cartId, shippingAddress=null, billingAddress=null, shippingDay=null, shippingTime=null }) {
 
         let obj = {
             currency: 'ARS',
             shippingAddress: shippingAddress || {},
+            shippingDay: shippingDay || {},
+            shippingTime: shippingTime || {},
             billingAddress: billingAddress || {},
             createdAt: new Date()
         };
@@ -151,6 +153,39 @@ class Checkout {
         // Fetch checkout's latest state and return.
         return await Checkout.get(checkoutId);
     }
+
+    /**
+     * Update checkout's shipping schedule
+     */
+    @DBDecorators.table(tables.Checkout)
+    static async updateShippingTime(checkoutId, {shippingTime}) {
+
+        // Update checkout
+        await this.table.get(checkoutId).update({
+            shippingTime: shippingTime,
+            updatedAt: new Date()
+        }).run();
+
+        // Fetch checkout's latest state and return.
+        return await Checkout.get(checkoutId);
+    }
+
+    /**
+     * Update checkout's shipping schedule
+     */
+    @DBDecorators.table(tables.Checkout)
+    static async updateShippingDay(checkoutId, {shippingDay}) {
+
+        // Update checkout
+        await this.table.get(checkoutId).update({
+            shippingDay: shippingDay,
+            updatedAt: new Date()
+        }).run();
+
+        // Fetch checkout's latest state and return.
+        return await Checkout.get(checkoutId);
+    }
+
 
     /**
      * Update checkout's payment method

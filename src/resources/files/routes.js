@@ -17,7 +17,7 @@ export default [
             handler: {async: FileHandlers.post},
             auth: {
                 strategy: 'jwt',
-                scope: ['admin']
+                mode: 'try',
             },
             description: 'Upload file',
             tags: ['api'],
@@ -28,7 +28,7 @@ export default [
             },
             validate: {
                 headers: Joi.object({
-                    'authorization': Joi.string().required()
+                    'authorization': Joi.string().optional()
                 }).unknown(),
                 payload: {
                     file: Joi.object().required(),

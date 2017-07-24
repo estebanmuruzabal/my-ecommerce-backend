@@ -134,6 +134,18 @@ class CheckoutIdHandler {
             } else {
                 checkout = await Checkout.updateShippingMethod(checkoutId, request.payload);
             }
+        } else if (hasKeys(request.payload, ['shippingDay'])) {
+                if (request.payload.shippingDay === '') {
+                    return reply(BadRequest.invalidParameters('payload', {shippingDay: ['This field is required']})).code(400);
+                } else {
+                    checkout = await Checkout.updateShippingDay(checkoutId, request.payload);
+                }
+        } else if (hasKeys(request.payload, ['shippingTime'])) {
+                if (request.payload.shippingTime === '') {
+                    return reply(BadRequest.invalidParameters('payload', {shippingTime: ['This field is required']})).code(400);
+                } else {
+                    checkout = await Checkout.updateShippingTime(checkoutId, request.payload);
+                }
         } else if (hasKeys(request.payload, ['paymentMethod'])) {
             if (request.payload.paymentMethod === '') {
                 return reply(BadRequest.invalidParameters('payload', {paymentMethod: ['This field is required']})).code(400);
