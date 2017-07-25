@@ -27,8 +27,8 @@ class Copies {
           name,
           pagetype,
           description,
-          files: [],
-          copiesnum: 0,
+          files,
+          copiesnum,
           phone,
           createdAt: new Date()
       };
