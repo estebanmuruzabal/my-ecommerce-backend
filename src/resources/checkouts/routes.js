@@ -23,10 +23,10 @@ export default [
         method: 'GET',
         config: {
             handler: {async: CheckoutsHandler.get},
-            /*auth: {
-                strategy: 'jwt',
-                scope: ['admin']
-            },*/
+            auth: {
+                mode: 'try',
+                strategy: 'jwt'
+            },
         }
     },
     {

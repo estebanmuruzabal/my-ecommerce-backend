@@ -46,6 +46,14 @@ class Product {
             stock: 0,
             tags: [],
             collections: [],
+            copies: {
+                pagetype: {},
+                pagesnum: 0,
+                files: [],
+                comments: {},
+                price: 0,
+                anillado: false,
+            },
             metadata: {},
             createdAt: new Date()
         };
@@ -189,7 +197,7 @@ class Product {
      * Update product
      */
     @DBDecorators.table(tables.Product)
-    static async update(productId, {enabled, sku, name, description, images, pricing, stock, tags, collections, metadata}) {
+    static async update(productId, {enabled, sku, name, description, images, pricing, stock, tags, collections, copies, metadata}) {
 
         // Validate that SKU does not belong to another product
         if (sku) {
@@ -210,6 +218,7 @@ class Product {
             stock,
             tags,
             collections,
+            copies,
             metadata,
             updatedAt: new Date()
         }).run();

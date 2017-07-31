@@ -232,7 +232,7 @@ class OrderEmailHandler {
         //
         // 3) Validate payload
         //
-        if ([EmailTemplate.ORDER_CREATED.id, EmailTemplate.ORDER_PAID.id, EmailTemplate.ORDER_PENDING_PAYMENT.id, EmailTemplate.ORDER_PENDING_PAYMENT_MERCADOPAGO.id, EmailTemplate.ORDER_PENDING_PAYMENT_PAYPAL.id].indexOf(request.payload.template) === -1) {
+        if ([EmailTemplate.ORDER_CREATED.id, EmailTemplate.ORDER_PAID.id, EmailTemplate.ORDER_PENDING_PAYMENT.id, EmailTemplate.ORDER_PENDING_PAYMENT_MERCADOPAGO.id, EmailTemplate.ORDER_PENDING_PAYMENT_CC.id].indexOf(request.payload.template) === -1) {
             return reply(BadRequest.invalidParameters('payload', {template: ['Invalid']})).code(400);
         }
 
@@ -290,6 +290,8 @@ class OrderEmailHandler {
         // c) Order Pending Payment Mercado Pago
         else if (request.payload.template === EmailTemplate.ORDER_PENDING_PAYMENT_MERCADOPAGO.id) {
             template = EmailTemplate.ORDER_PENDING_PAYMENT_MERCADOPAGO;
+            let checkout = new Checkout(await Checkout.get(order.checkoutId));
+            let checkoutSerialized = await new CheckoutSerializer(checkout.model).serialize();
             data = {
                 customerDetails: order.customer,
                 checkout: checkoutSerialized,
@@ -300,8 +302,10 @@ class OrderEmailHandler {
         }
 
         // c) Order Pending Payment PayPal
-        else if (request.payload.template === EmailTemplate.ORDER_PENDING_PAYMENT_PAYPAL.id) {
-            template = EmailTemplate.ORDER_PENDING_PAYMENT_PAYPAL;
+        else if (request.payload.template === EmailTemplate.ORDER_PENDING_PAYMENT_CC.id) {
+            template = EmailTemplate.ORDER_PENDING_PAYMENT_CC;
+            let checkout = new Checkout(await Checkout.get(order.checkoutId));
+            let checkoutSerialized = await new CheckoutSerializer(checkout.model).serialize();
             data = {
                 customerDetails: order.customer,
                 checkout: checkoutSerialized,

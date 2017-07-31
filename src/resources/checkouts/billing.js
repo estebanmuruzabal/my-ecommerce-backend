@@ -11,17 +11,17 @@ function getPaymentOptions(checkout) {
             }
         },
         {
-            id: 'paypal',
+            id: 'creditcard',
             label: {
-                en: 'Payment on delivery',
-                es: 'Pago online mediante Paypal (se necesita cuenta en Paypal)'
+                en: 'Payment on delivery with cc',
+                es: 'Con tarjeta de crédito. Pagás cuando recibís la mercadería'
             }
         },
         {
             id: 'cash',
             label: {
                 en: 'Payment on delivery',
-                es: 'En efectivo. Pagás cuando recibís la mercadería'
+                es: 'Con efectivo. Pagás cuando recibís la mercadería'
             }
         }
     ];

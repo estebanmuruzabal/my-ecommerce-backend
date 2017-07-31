@@ -148,6 +148,16 @@ export default [
                     stock: Joi.number().required(),
                     tags: Joi.array().required(),
                     collections: Joi.array().required(),
+                    copies: Joi.object({
+                        pagetype: Joi.string().allow('').required(),
+                        pagesnum: Joi.number().precision(2).required(),
+                        files: Joi.array({
+                            url: Joi.string().required()
+                        }).required(),
+                        comments: Joi.string().allow('').optional(),
+                        price: Joi.number().precision(2).required(),
+                        anillado: Joi.boolean().required(),
+                    }).optional(),
                     metadata: Joi.object().required()
                 }
             }

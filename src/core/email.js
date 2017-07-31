@@ -33,10 +33,10 @@ const EmailTemplate = {
         fileName: 'orderPendingPayment.html',
         subject: 'Pedido aguardando pago'
     },
-    ORDER_PENDING_PAYMENT_PAYPAL: {
-        id: 'order.pendingPaymentPaypal',
-        fileName: 'orderPendingPaymentPaypal.html',
-        subject: 'Pedido aguardando pago'
+    ORDER_PENDING_PAYMENT_CC: {
+        id: 'order.pendingPaymentCC',
+        fileName: 'orderPendingPaymentCC.html',
+        subject: 'Gracias por su compra!'
     },
     ORDER_PENDING_PAYMENT_MERCADOPAGO: {
         id: 'order.pendingPaymentMercadoPago',
