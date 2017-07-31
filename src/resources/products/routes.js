@@ -113,15 +113,15 @@ export default [
         config: {
             handler: {async: ProductIdHandler.put},
             auth: {
-                strategy: 'jwt',
-                scope: ['admin']
+                mode: 'try',
+                strategy: 'jwt'
             },
             description: 'Update all product details',
             tags: ['api'],
             validate: {
-                headers: Joi.object({
-                    'authorization': Joi.string().required()
-                }).unknown(),
+              headers: Joi.object({
+                  'authorization': Joi.string().optional()
+              }).unknown(),
                 params: {
                     productId: Joi.string().required().description('the id for the product'),
                 },
