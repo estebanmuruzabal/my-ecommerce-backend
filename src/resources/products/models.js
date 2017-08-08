@@ -53,6 +53,7 @@ class Product {
                 comments: {},
                 price: 0,
                 anillado: false,
+                doblefaz: true,
             },
             metadata: {},
             createdAt: new Date()

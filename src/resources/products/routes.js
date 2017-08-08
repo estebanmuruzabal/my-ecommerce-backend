@@ -157,6 +157,7 @@ export default [
                         comments: Joi.string().allow('').optional(),
                         price: Joi.number().precision(2).required(),
                         anillado: Joi.boolean().required(),
+                        doblefaz: Joi.boolean().required(),
                     }).optional(),
                     metadata: Joi.object().required()
                 }
