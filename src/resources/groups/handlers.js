@@ -1,45 +1,45 @@
 /**
  * Imports
  */
-import {Service} from './models';
+import {Group} from './models';
 import log from './logging';
-import {ServiceSerializer} from './serializers';
+import {GroupSerializer} from './serializers';
 
 /**
- * API handler for services service endpoint
+ * API handler for groups group endpoint
  */
-class ServicesHandler {
+class GroupsHandler {
 
     /**
      * Process GET request
-     * Return the Service's Service
+     * Return the Group's Group
      */
     static async get(request, reply) {
 
-        // Only authenticated Admins can see Services that are not enabled
+        // Only authenticated Admins can see Groups that are not enabled
         let isAdmin = request.auth.credentials && request.auth.credentials.scope && request.auth.credentials.scope.indexOf('admin') !== -1;
         let enabled = !isAdmin;
 
-        return reply({items: await Service.find({
+        return reply({items: await Group.find({
             tags: request.query.tags ? request.query.tags.split(',') : null
         }, enabled)});
     }
 
     /**
      * Process POST request
-     * Create a new Service
+     * Create a new Group
      */
 
 
     static async post(request, reply) {
         try {
-            let service = await Service.create(request.payload);
-            return reply(service).code(201);
+            let group = await Group.create(request.payload);
+            return reply(group).code(201);
         } catch (err) {
             if (err) {
                 return reply(BadRequest.invalidParameters('payload', {[err.param]: [err.message]})).code(400);
             } else {
-                log.error(err, 'Unable to create service');
+                log.error(err, 'Unable to create group');
                 return reply().code(500);
             }
         }
@@ -48,19 +48,19 @@ class ServicesHandler {
 }
 
 /**
- * API handler for Service ID endpoint
+ * API handler for Group ID endpoint
  */
-class ServiceIdHandler {
+class GroupIdHandler {
 
     /**
      * Process GET request
      */
     static async get(request, reply) {
-        let service = await Service.get(request.params.serviceId);
-        // Note: Only authenticated Admins can see Services that are not enabled
+        let group = await Group.get(request.params.groupId);
+        // Note: Only authenticated Admins can see Groups that are not enabled
         let isAdmin = request.auth.credentials && request.auth.credentials.scope && request.auth.credentials.scope.indexOf('admin') !== -1;
-        if (service && (service.enabled === true || isAdmin)) {
-            return reply(service);
+        if (group && (group.enabled === true || isAdmin)) {
+            return reply(group);
         } else {
             return reply().code(404);
         }
@@ -71,15 +71,15 @@ class ServiceIdHandler {
      */
     static async put(request, reply) {
 
-        // Check if service with given ID exists
-        let service = await Service.get(request.params.serviceId);
-        if (!service) {
+        // Check if group with given ID exists
+        let group = await Group.get(request.params.groupId);
+        if (!group) {
             return reply().code(404);
         }
 
-        // Update service
-        service = await Service.update(request.params.serviceId, request.payload);
-        return reply(service);
+        // Update group
+        group = await Group.update(request.params.groupId, request.payload);
+        return reply(group);
     }
 
     /**
@@ -87,21 +87,21 @@ class ServiceIdHandler {
      */
     static async delete(request, reply) {
 
-        // Check if service with given ID exists
-        let service = await Service.get(request.params.serviceId);
-        if (!service) {
+        // Check if group with given ID exists
+        let group = await Group.get(request.params.groupId);
+        if (!group) {
             return reply().code(404);
         }
 
-        // delete the service
+        // delete the group
         try {
-            service = await Service.del(request.params.serviceId, request.payload);
+            group = await Group.del(request.params.groupId, request.payload);
             return reply().code(201);
         } catch (err) {
             if (err.name === ErrorName.VALIDATION_ERROR) {
                 return reply(BadRequest.invalidParameters('payload', {[err.param]: [err.message]})).code(400);
             } else {
-                log.error(err, 'Unable to delete service');
+                log.error(err, 'Unable to delete group');
                 return reply().code(500);
             }
         }
@@ -112,4 +112,4 @@ class ServiceIdHandler {
 /**
  * Exports
  */
-export {ServicesHandler, ServiceIdHandler};
+export {GroupsHandler, GroupIdHandler};

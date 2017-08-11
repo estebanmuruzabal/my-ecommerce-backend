@@ -4,9 +4,9 @@
 import Joi from 'joi';
 
 /**
- * Class containing schema details and serializer methods for service objects
+ * Class containing schema details and serializer methods for Group objects
  */
-class ServiceSerializer {
+class GroupSerializer {
 
     static schema = {
         enabled: Joi.boolean(),
@@ -28,16 +28,16 @@ class ServiceSerializer {
         metadata: Joi.object()
     };
 
-    constructor(service) {
-        this.service = Object.assign({}, service);
+    constructor(group) {
+        this.group = Object.assign({}, group);
     }
 
     async serialize() {
-        return this.service;
+        return this.group;
     }
 }
 
 /**
  * Exports
  */
-export {ServiceSerializer};
+export {GroupSerializer};

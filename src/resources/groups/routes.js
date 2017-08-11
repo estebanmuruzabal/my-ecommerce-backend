@@ -5,8 +5,8 @@ import Joi from 'joi';
 
 // API endpoint handlers
 import {
-    ServicesHandler,
-    ServiceIdHandler
+    GroupsHandler,
+    GroupIdHandler
 } from './handlers';
 
 /**
@@ -17,12 +17,12 @@ export default [
         path: '',
         method: 'GET',
         config: {
-            handler: {async: ServicesHandler.get},
+            handler: {async: GroupsHandler.get},
             auth: {
                 mode: 'try',
                 strategy: 'jwt'
             },
-            description: 'Get all the services',
+            description: 'Get all the groups',
             tags: ['api'],
             validate: {
                 headers: Joi.object({
@@ -38,12 +38,12 @@ export default [
         path: '',
         method: 'POST',
         config: {
-            handler: {async: ServicesHandler.post},
+            handler: {async: GroupsHandler.post},
             auth: {
                 strategy: 'jwt',
                 scope: ['admin']
             },
-            description: 'Create new service',
+            description: 'Create new group',
             tags: ['api'],
             validate: {
                 headers: Joi.object({
@@ -64,65 +64,65 @@ export default [
         }
     },
     {
-        path: '/{serviceId}',
+        path: '/{groupId}',
         method: 'GET',
         config: {
-            handler: {async: ServiceIdHandler.get},
+            handler: {async: GroupIdHandler.get},
             auth: {
                 mode: 'try',
                 strategy: 'jwt'
             },
-            description: 'Get service',
-            notes: 'Returns a service by the id passed in the path',
+            description: 'Get group',
+            notes: 'Returns a group by the id passed in the path',
             tags: ['api'],
             validate: {
                 headers: Joi.object({
                     'authorization': Joi.string().optional()
                 }).unknown(),
                 params: {
-                    serviceId: Joi.string().required().description('the id for the service'),
+                    groupId: Joi.string().required().description('the id for the group'),
                 }
             }
         }
     },
     {
-        path: '/{serviceId}',
+        path: '/{groupId}',
         method: 'DELETE',
         config: {
-            handler: {async: ServiceIdHandler.delete},
+            handler: {async: GroupIdHandler.delete},
             auth: {
                 mode: 'try',
                 strategy: 'jwt'
             },
-            description: 'Delete service',
+            description: 'Delete group',
             tags: ['api'],
             validate: {
                 headers: Joi.object({
                     'authorization': Joi.string().optional()
                 }).unknown(),
                 params: {
-                    serviceId: Joi.string().required().description('the id for the service'),
+                    groupId: Joi.string().required().description('the id for the group'),
                 }
             }
         }
     },
     {
-        path: '/{serviceId}',
+        path: '/{groupId}',
         method: 'PUT',
         config: {
-            handler: {async: ServiceIdHandler.put},
+            handler: {async: GroupIdHandler.put},
             auth: {
                 strategy: 'jwt',
                 scope: ['admin']
             },
-            description: 'Update service',
+            description: 'Update group',
             tags: ['api'],
             validate: {
                 headers: Joi.object({
                     'authorization': Joi.string().required()
                 }).unknown(),
                 params: {
-                    serviceId: Joi.string().required().description('the id for the service'),
+                    groupId: Joi.string().required().description('the id for the group'),
                 },
                 payload: {
                     enabled: Joi.boolean().required(),

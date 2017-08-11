@@ -8,21 +8,21 @@ import {rethinkdb, Decorators as DBDecorators} from '../../core/db';
  * Database tables
  */
 const tables = {
-    Service: 'Services'
+    Group: 'Groups'
 };
 
 /**
- * Service model
+ * Group model
  */
-class Service {
+class Group {
 
     /**
-     * Create a new Service
+     * Create a new Group
      */
-    @DBDecorators.table(tables.Service)
+    @DBDecorators.table(tables.Group)
     static async create({name, tags}) {
 
-        // Insert Service into database
+        // Insert Group into database
         let obj = {
             name,
             tags,
@@ -39,14 +39,14 @@ class Service {
         };
         let insert = await this.table.insert(obj).run();
 
-        // Get Service object and return it
+        // Get Group object and return it
         return await this.table.get(insert.generated_keys[0]).run();
     }
 
     /**
-     * Return Services Service
+     * Return Group Group
      */
-    @DBDecorators.table(tables.Service)
+    @DBDecorators.table(tables.Group)
     static async find({tags=null}, enabled) {
 
         // Build query
@@ -57,8 +57,8 @@ class Service {
 
         // Filter by those that contain given tags
         if (tags) {
-            query = query.filter(function (service) {
-                return service('tags').contains(...tags);
+            query = query.filter(function (group) {
+                return group('tags').contains(...tags);
             });
         }
 
@@ -67,47 +67,47 @@ class Service {
     }
 
     /**
-     * Return Service with given ID
+     * Return Group with given ID
      */
-    @DBDecorators.table(tables.Service)
-    static async get(serviceId) {
-        return await this.table.get(serviceId).run();
+    @DBDecorators.table(tables.Group)
+    static async get(groupId) {
+        return await this.table.get(groupId).run();
     }
 
     /**
-     * Delete Service
+     * Delete Group
      */
-    @DBDecorators.table(tables.Service)
-    static async del(serviceId) {
+    @DBDecorators.table(tables.Group)
+    static async del(groupId) {
 
-        // Update Service
-        await this.table.get(serviceId).delete().run();
+        // Update Group
+        await this.table.get(groupId).delete().run();
 
-        // Fetch Service's latest state and return.
-        return await Service.get(serviceId);
+        // Fetch Group's latest state and return.
+        return await Group.get(groupId);
     }
 
     /**
-     * Update service images
-     * @param serviceId - the service unique ID
+     * Update Group images
+     * @param groupId - the group unique ID
      * @param images - an array of image objects (that contain URL and other info)
-     * @returns the saved service object
+     * @returns the saved group object
      */
-    @DBDecorators.table(tables.Service)
-    static async updateImages(serviceId, images) {
+    @DBDecorators.table(tables.Group)
+    static async updateImages(groupId, images) {
 
-        // Update Service
-        await this.table.get(serviceId).update({images, updatedAt: new Date()}).run();
+        // Update Group
+        await this.table.get(groupId).update({images, updatedAt: new Date()}).run();
 
-        // Fetch service's latest state and return.
-        return await Service.get(serviceId);
+        // Fetch group's latest state and return.
+        return await Group.get(groupId);
     }
 
     /**
-     * Update Service
+     * Update Group
      */
-    @DBDecorators.table(tables.Service)
-    static async update(serviceId, {enabled, name, description=null, images, pricing, tags, metadata}) {
+    @DBDecorators.table(tables.Group)
+    static async update(groupId, {enabled, name, description=null, images, pricing, tags, metadata}) {
         let obj = {
             enabled,
             name,
@@ -122,15 +122,15 @@ class Service {
             obj.description = description;
         }
 
-        // Update Service
-        await this.table.get(serviceId).update(obj).run();
+        // Update Group
+        await this.table.get(groupId).update(obj).run();
 
-        // Fetch Service's latest state and return.
-        return await Service.get(serviceId);
+        // Fetch Group's latest state and return.
+        return await Group.get(groupId);
     }
 }
 
 /**
  * Export
  */
-export {tables, Service};
+export {tables, Group};
