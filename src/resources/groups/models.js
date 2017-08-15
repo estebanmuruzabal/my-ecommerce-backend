@@ -22,33 +22,23 @@ class Group {
     @DBDecorators.table(tables.Group)
     static async create({name, tags}) {
 
-        // Insert Group into database
         let obj = {
             name,
+            buyers: [],
             tags,
-            description: {},
-            images: [],
-            pricing: {
-                currency: config.app.defaultCurrency,
-                usdprice: 0,
-                arsprice: 0
-            },
-            enabled: false,
-            metadata: {},
-            createdAt: new Date()
+            updatedAt: new Date()
         };
+
         let insert = await this.table.insert(obj).run();
 
         // Get Group object and return it
         return await this.table.get(insert.generated_keys[0]).run();
     }
 
-    /**
-     * Return Group Group
-     */
-    @DBDecorators.table(tables.Group)
-    static async find({tags=null}, enabled) {
 
+    @DBDecorators.table(tables.Group)
+    static async find({tags=null}) {
+        let enabled = false
         // Build query
         let query = this.table.filter((enabled === true) ? {enabled: true} : {});
 
@@ -57,14 +47,15 @@ class Group {
 
         // Filter by those that contain given tags
         if (tags) {
-            query = query.filter(function (group) {
-                return group('tags').contains(...tags);
+            query = query.filter(function (groups) {
+                return groups('tags').contains(...tags);
             });
         }
 
         // Execute query and return
         return await query.run();
     }
+
 
     /**
      * Return Group with given ID
@@ -107,12 +98,12 @@ class Group {
      * Update Group
      */
     @DBDecorators.table(tables.Group)
-    static async update(groupId, {enabled, name, description=null, images, pricing, tags, metadata}) {
+    static async update(groupId, { name, description=null, buyers, pricing, tags, metadata}) {
         let obj = {
             enabled,
             name,
             description,
-            images,
+            buyers,
             pricing,
             tags,
             metadata,

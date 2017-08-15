@@ -3,7 +3,6 @@
  */
 import {Group} from './models';
 import log from './logging';
-import {GroupSerializer} from './serializers';
 
 /**
  * API handler for groups group endpoint
@@ -15,14 +14,9 @@ class GroupsHandler {
      * Return the Group's Group
      */
     static async get(request, reply) {
-
-        // Only authenticated Admins can see Groups that are not enabled
-        let isAdmin = request.auth.credentials && request.auth.credentials.scope && request.auth.credentials.scope.indexOf('admin') !== -1;
-        let enabled = !isAdmin;
-
         return reply({items: await Group.find({
             tags: request.query.tags ? request.query.tags.split(',') : null
-        }, enabled)});
+        })});
     }
 
     /**
@@ -57,9 +51,8 @@ class GroupIdHandler {
      */
     static async get(request, reply) {
         let group = await Group.get(request.params.groupId);
-        // Note: Only authenticated Admins can see Groups that are not enabled
-        let isAdmin = request.auth.credentials && request.auth.credentials.scope && request.auth.credentials.scope.indexOf('admin') !== -1;
-        if (group && (group.enabled === true || isAdmin)) {
+
+        if (group) {
             return reply(group);
         } else {
             return reply().code(404);
