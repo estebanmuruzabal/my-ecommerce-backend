@@ -51,6 +51,7 @@ export default [
                 }).unknown(),
                 payload: {
                     name: Joi.object().required(),
+                    buyers: Joi.array().required(),
                     tags: Joi.array().optional()
                 }
             },
@@ -58,6 +59,7 @@ export default [
                 schema: {
                     id: Joi.string(),
                     name: Joi.object(),
+                    buyers: Joi.array(),
                     tags: Joi.array()
                 }
             }
@@ -125,25 +127,17 @@ export default [
                     groupId: Joi.string().required().description('the id for the group'),
                 },
                 payload: {
-                    enabled: Joi.boolean().required(),
+
                     name: Joi.object({
                         en: Joi.string().required(),
                         es: Joi.string().required()
                     }).required(),
-                    description: Joi.object({
-                        en: Joi.string().required(),
-                        es: Joi.string().required()
-                    }).required(),
-                    images: Joi.array({
-                        url: Joi.string().required()
-                    }).required(),
-                    pricing: Joi.object({
-                        currency: Joi.string().required(),
-                        usdprice: Joi.number().precision(2).required(),
-                        arsprice: Joi.number().precision(2).required()
-                    }).required(),
-                    tags: Joi.array().required(),
-                    metadata: Joi.object().required()
+
+                    buyers: Joi.array({
+                        buyer: Joi.string().required()
+                    }).min(0).max(14).required(),
+
+                    tags: Joi.array().required()
                 }
             }
         }

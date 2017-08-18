@@ -37,20 +37,11 @@ class Group {
 
 
     @DBDecorators.table(tables.Group)
-    static async find({tags=null}) {
-        let enabled = false
+    static async find() {
+
         // Build query
-        let query = this.table.filter((enabled === true) ? {enabled: true} : {});
 
-        // Default sorting: alphabetically
-        query = query.orderBy(rethinkdb.asc('name'));
-
-        // Filter by those that contain given tags
-        if (tags) {
-            query = query.filter(function (groups) {
-                return groups('tags').contains(...tags);
-            });
-        }
+        let query = this.table.filter({});
 
         // Execute query and return
         return await query.run();
@@ -98,20 +89,13 @@ class Group {
      * Update Group
      */
     @DBDecorators.table(tables.Group)
-    static async update(groupId, { name, description=null, buyers, pricing, tags, metadata}) {
+    static async update(groupId, {name, buyers, tags}) {
         let obj = {
-            enabled,
             name,
-            description,
             buyers,
-            pricing,
             tags,
-            metadata,
             updatedAt: new Date()
         };
-        if (description != null) {
-            obj.description = description;
-        }
 
         // Update Group
         await this.table.get(groupId).update(obj).run();

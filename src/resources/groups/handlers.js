@@ -24,7 +24,6 @@ class GroupsHandler {
      * Create a new Group
      */
 
-
     static async post(request, reply) {
         try {
             let group = await Group.create(request.payload);
@@ -69,10 +68,12 @@ class GroupIdHandler {
         if (!group) {
             return reply().code(404);
         }
-
-        // Update group
-        group = await Group.update(request.params.groupId, request.payload);
-        return reply(group);
+        if (group.buyers.length == 14) {
+            return reply(BadRequest.invalidParameters('payload', {'group.buyers': ['Max quontity of buyers reached']})).code(400);
+        } else {
+            group = await Group.update(request.params.groupId, request.payload);
+            return reply(group);
+        }
     }
 
     /**
