@@ -56,8 +56,8 @@ function getShippingOptions(checkout) {
         options.push({
           value: 'free-pickup',
           name: {
-              en: 'A retirar en nuestro local, calle Guemes 765. Lun a Vie de 07:30 a 12:30 o 17:00 a 20:30',
-              es: 'A retirar en nuestro local, calle Guemes 765. Lun a Vie de 07:30 a 12:30 o 17:00 a 20:30'
+              en: 'A retirar en nuestro local, calle Guemes 765.',
+              es: 'A retirar en nuestro local, calle Guemes 765.'
           },
           price: 0,
           vat: 0,
@@ -66,8 +66,8 @@ function getShippingOptions(checkout) {
         {
           value: 'zona-1-free',
           name: {
-              en: 'Envio gratis dentro del casco centrico. Todos los Lunes y Jueves de 14 a 16',
-              es: 'Envio gratis dentro del casco centrico. Todos los Lunes y Jueves de 14 a 16'
+              en: 'Envio gratis dentro del casco centrico.',
+              es: 'Envio gratis dentro del casco centrico.'
           },
           price: 0,
           vat: 0,
