@@ -6,15 +6,8 @@ function getPaymentOptions(checkout) {
         {
             id: 'mercadopago',
             label: {
-                es: 'Pago online mediante Mercado Pago',
+                es: 'Pago online mediante Mercado Pago (Tarjeta de Crédito o Débito)',
                 en: 'Payment through Mercado Pago'
-            }
-        },
-        {
-            id: 'creditcard',
-            label: {
-                en: 'Payment on delivery with cc',
-                es: 'Con tarjeta de crédito. Pagás cuando recibís la mercadería'
             }
         },
         {

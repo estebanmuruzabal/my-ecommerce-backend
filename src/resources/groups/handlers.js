@@ -68,7 +68,7 @@ class GroupIdHandler {
         if (!group) {
             return reply().code(404);
         }
-        if (group.buyers.length == 14) {
+        if (group.buyers.size == 14) {
             return reply(BadRequest.invalidParameters('payload', {'group.buyers': ['Max quontity of buyers reached']})).code(400);
         } else {
             group = await Group.update(request.params.groupId, request.payload);
