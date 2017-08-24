@@ -109,15 +109,15 @@ export default [
         config: {
             handler: {async: OrderEmailHandler.post},
             auth: {
-                strategy: 'jwt',
-                scope: ['admin']
+                mode: 'try',
+                strategy: 'jwt'
             },
             description: 'Send transactional email',
             notes: 'This endpoint enables manual triggering of certain transactional emails',
             tags: ['api'],
             validate: {
                 headers: Joi.object({
-                    'authorization': Joi.string().required()
+                    'authorization': Joi.string().optional()
                 }).unknown(),
                 params: {
                     orderId: Joi.string().required().description('the id for the order'),
@@ -126,7 +126,7 @@ export default [
                     template: Joi.string().required(),
                     email: Joi.string().required(),
                     subject: Joi.string().required(),
-                    paymentlink: Joi.string().required()
+                    paymentlink: Joi.string().allow('').optional()
                 }
             }
         }
