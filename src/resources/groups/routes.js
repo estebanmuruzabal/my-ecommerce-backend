@@ -93,14 +93,14 @@ export default [
         config: {
             handler: {async: GroupIdHandler.delete},
             auth: {
-                mode: 'try',
-                strategy: 'jwt'
+                strategy: 'jwt',
+                scope: ['admin']
             },
             description: 'Delete group',
             tags: ['api'],
             validate: {
                 headers: Joi.object({
-                    'authorization': Joi.string().optional()
+                    'authorization': Joi.string().required()
                 }).unknown(),
                 params: {
                     groupId: Joi.string().required().description('the id for the group'),
@@ -114,8 +114,8 @@ export default [
         config: {
             handler: {async: GroupIdHandler.put},
             auth: {
-                strategy: 'jwt',
-                scope: ['admin']
+                mode: 'try',
+                strategy: 'jwt'
             },
             description: 'Update group',
             tags: ['api'],
@@ -135,7 +135,7 @@ export default [
 
                     buyers: Joi.array({
                         buyer: Joi.string().required()
-                    }).min(0).max(14).required(),
+                    }).min(0).max(18).required(),
 
                     tags: Joi.array().required()
                 }
