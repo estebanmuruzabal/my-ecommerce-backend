@@ -76,10 +76,10 @@ function getShippingOptions(checkout) {
         {
             value: 'zona-2',
             name: {
-              en: 'Shipping to address in Zone 2',
-              es: 'Envío a domicilio en Zona 2'
+              en: 'Free shipping to address in Zone 2',
+              es: 'Envío gratis dentro de la Zona 2'
             },
-            price: 30.00,
+            price: 0,
             vat: 0,
             currency: 'ARS'
         },
