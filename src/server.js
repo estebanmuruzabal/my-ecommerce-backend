@@ -68,10 +68,7 @@ if (process.env.NODE_ENV !== 'production') {
                 description: 'Checkout a cart'
             }, {
                 name: 'collections',
-                description: 'Group of products'
-            }, {
-                name: 'groups',
-                description: 'Group of groups'
+                description: 'Collection of products'
             }, {
                 name: 'contents',
                 description: 'Generic content'
