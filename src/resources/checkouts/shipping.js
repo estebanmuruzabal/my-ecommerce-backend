@@ -15,7 +15,7 @@ function getShippingOptions(checkout) {
             value: 'free-pickup',
             name: {
                 en: 'To take pick-up in our shop',
-                es: 'A retirar en nuestro local, calle Guemes 765.'
+                es: 'A retirar por Belgrano 1060.'
             },
             price: 0,
             vat: 0,
@@ -46,8 +46,8 @@ function getShippingOptions(checkout) {
         options.push({
           value: 'free-pickup',
           name: {
-              en: 'A retirar en nuestro local, calle Guemes 765.',
-              es: 'A retirar en nuestro local, calle Guemes 765.'
+              en: 'A retirar por Belgrano 1060.'
+              es: 'A retirar por Belgrano 1060.'
           },
           price: 0,
           vat: 0,
