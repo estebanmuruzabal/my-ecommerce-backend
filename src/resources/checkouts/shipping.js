@@ -10,7 +10,7 @@ function getShippingOptions(checkout) {
 
     let options = [];
 
-    if (new Checkout(checkout).getSubTotal() <= 150) {
+    if (new Checkout(checkout).getSubTotal() <= 199) {
         options.push({
             value: 'free-pickup',
             name: {
@@ -69,7 +69,7 @@ function getShippingOptions(checkout) {
               en: 'Shipping to address in Zone 2',
               es: 'Envío a domicilio en Zona 2'
             },
-            price: 30.00,
+            price: 0,
             vat: 0,
             currency: 'ARS'
         }
