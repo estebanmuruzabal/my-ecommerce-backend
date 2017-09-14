@@ -46,7 +46,7 @@ function getShippingOptions(checkout) {
         options.push({
           value: 'free-pickup',
           name: {
-              en: 'A retirar por Belgrano 1060.'
+              en: 'A retirar por Belgrano 1060.',
               es: 'A retirar por Belgrano 1060.'
           },
           price: 0,
