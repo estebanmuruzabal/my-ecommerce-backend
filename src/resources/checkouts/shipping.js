@@ -40,16 +40,6 @@ function getShippingOptions(checkout) {
             price: 30.00,
             vat: 0,
             currency: 'ARS'
-        },
-        {
-            value: 'zona-3',
-            name: {
-              en: 'Shipping to address in Zone 3',
-              es: 'Envío a domicilio en Zona 3'
-            },
-            price: 40.00,
-            vat: 0,
-            currency: 'ARS'
         }
       );
     } else {
@@ -76,20 +66,10 @@ function getShippingOptions(checkout) {
         {
             value: 'zona-2',
             name: {
-              en: 'Free shipping to address in Zone 2',
-              es: 'Envío gratis dentro de la Zona 2'
+              en: 'Shipping to address in Zone 2',
+              es: 'Envío a domicilio en Zona 2'
             },
-            price: 0,
-            vat: 0,
-            currency: 'ARS'
-        },
-        {
-            value: 'zona-3',
-            name: {
-              en: 'Shipping to address in Zone 3',
-              es: 'Envío a domicilio en Zona 3'
-            },
-            price: 40.00,
+            price: 30.00,
             vat: 0,
             currency: 'ARS'
         }
