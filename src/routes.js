@@ -6,6 +6,9 @@ import cartRoutes from './resources/carts/routes';
 import checkoutRoutes from './resources/checkouts/routes';
 import collectionRoutes from './resources/collections/routes';
 import contentRoutes from './resources/contents/routes';
+import groupChicoRoutes from './resources/group-chico/routes';
+import groupMedianoRoutes from './resources/group-mediano/routes';
+import groupGrandeRoutes from './resources/group-grande/routes';
 import fileRoutes from './resources/files/routes';
 import orderRoutes from './resources/orders/routes';
 import productRoutes from './resources/products/routes';
@@ -20,6 +23,9 @@ export default buildRoutes({
     [`${routePrefix}/v1/collections`]: collectionRoutes,
     [`${routePrefix}/v1/contents`]: contentRoutes,
     [`${routePrefix}/v1/files`]: fileRoutes,
+    [`${routePrefix}/v1/groupChico`]: groupChicoRoutes,
+    [`${routePrefix}/v1/groupMediano`]: groupMedianoRoutes,
+    [`${routePrefix}/v1/groupGrande`]: groupGrandeRoutes,
     [`${routePrefix}/v1/orders`]: orderRoutes,
     [`${routePrefix}/v1/products`]: productRoutes,
     [`${routePrefix}/v1/users`]: userRoutes

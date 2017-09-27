@@ -68,7 +68,16 @@ if (process.env.NODE_ENV !== 'production') {
                 description: 'Checkout a cart'
             }, {
                 name: 'collections',
-                description: 'Collection of products'
+                description: 'Collection of products',
+            }, {
+                name: 'group chico',
+                description: 'Group chico list'
+            }, {
+                name: 'group mediano',
+                description: 'Group mediano'
+              }, {
+                name: 'group grande',
+                description: 'Group of grande'
             }, {
                 name: 'contents',
                 description: 'Generic content'
