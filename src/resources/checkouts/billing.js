@@ -6,7 +6,7 @@ function getPaymentOptions(checkout) {
         {
             id: 'mercadopago',
             label: {
-                es: 'Pago online mediante Mercado Pago (Tarjeta de Crédito o Débito)',
+                es: 'Tarjeta de Crédito/Débito (Se le enviará un link a su mail para pagar desde la pagina de Mercado Pago)',
                 en: 'Payment through Mercado Pago'
             }
         },

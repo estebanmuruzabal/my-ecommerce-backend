@@ -69,7 +69,7 @@ function getShippingOptions(checkout) {
               en: 'Shipping to address in Zone 2',
               es: 'Envío a domicilio en Zona 2'
             },
-            price: 0,
+            price: 10,
             vat: 0,
             currency: 'ARS'
         }
